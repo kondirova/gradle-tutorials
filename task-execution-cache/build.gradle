@@ -1,0 +1,25 @@
+abstract class MyTask extends DefaultTask {
+
+    @Input
+    abstract Property<String> getInputProperty()
+
+    @OutputFile
+    abstract Property<File> getOutputProperty()
+
+    @TaskAction
+    void execute() {
+        def input = inputProperty.get()
+        def output = outputProperty.get()
+
+        println 'Input: ' + input
+        println 'Output: ' + output
+
+        output.createNewFile()
+        output.text = input
+    }
+}
+
+tasks.register("my-task", MyTask) {
+    inputProperty = 'Text in file'
+    outputProperty = file('build/file.txt')
+}
