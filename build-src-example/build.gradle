@@ -1,0 +1,7 @@
+import org.example.CustomPlugin
+
+apply plugin: CustomPlugin
+
+'my-task' {
+    println "Custom task configuration"
+}
