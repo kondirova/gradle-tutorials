@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+sourceSets {
+    core
+}
+
+configurations {
+    coreConfiguration
+}
+
+tasks.register("coreJar", Jar) {
+    archiveBaseName = "core-library"
+    from sourceSets.core.output
+}
+
+artifacts {
+    coreConfiguration coreJar
+}
