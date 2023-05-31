@@ -1,0 +1,8 @@
+
+*/build/
+*/.gradle/
+.idea
+!.idea/vcs.xml
+!.idea/gradle.xml
+!.idea/modules.xml
+!gradle-tutorials.iml
