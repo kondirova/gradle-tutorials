@@ -1,0 +1,21 @@
+abstract class MyTask extends DefaultTask {
+
+    private String option;
+
+    @Option(option = "option", description = "Task option")
+    void setOption(String value) {
+        option = value
+    }
+
+    @Input
+    String getOption() {
+        return option
+    }
+
+    @TaskAction
+    void execute() {
+        println "Task option: " + option
+    }
+}
+
+tasks.register("my-task", MyTask)
