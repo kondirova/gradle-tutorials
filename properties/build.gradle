@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+test {
+    systemProperty "test.property", System.getProperty("test.property")
+    systemProperty "gradle.test.property", providers.gradleProperty("gradle.test.property").get()
+}
+
+run {
+    systemProperty "main.property", System.getProperty("main.property")
+    systemProperty "gradle.main.property", providers.gradleProperty("gradle.main.property").get()
+}
+
+jar {
+    manifest {
+        mainClassName = "org.example.Main"
+    }
+}
