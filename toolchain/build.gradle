@@ -25,8 +25,11 @@ jar {
     }
 }
 
-java {
+/*java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
+        languageVersion = JavaLanguageVersion.of(20)
     }
-}
+}*/
+
+sourceCompatibility = 17
+targetCompatibility = 17

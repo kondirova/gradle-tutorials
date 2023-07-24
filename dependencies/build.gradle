@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 17
+targetCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation "org.apache.commons:commons-lang3:3.12.0"
+
+/*    runtimeOnly group: 'org.springframework', name: 'spring-core', version: '2.5'
+   runtimeOnly 'org.springframework:spring-core:2.5',
+            'org.springframework:spring-aop:2.5'
+    runtimeOnly(
+            [group: 'org.springframework', name: 'spring-core', version: '2.5'],
+            [group: 'org.springframework', name: 'spring-aop', version: '2.5']
+    )
+   runtimeOnly('org.hibernate:hibernate:3.0.5') {
+        transitive = true
+    }
+    runtimeOnly group: 'org.hibernate', name: 'hibernate', version: '3.0.5', transitive: true
+    runtimeOnly(group: 'org.hibernate', name: 'hibernate', version: '3.0.5') {
+        transitive = true
+    }*/
+}
+
+test {
+    useJUnitPlatform()
+}
